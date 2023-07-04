@@ -1,3 +1,4 @@
+import Script from "next/script";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -17,12 +18,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Google tag (gtag.js) */}
-        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-Z6EQ3E6VWD"
-        />
-        <script>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-Z6EQ3E6VWD" />
+        <Script id="google-analytics">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -30,7 +27,7 @@ export default function RootLayout({
 
             gtag('config', 'G-Z6EQ3E6VWD');
           `}
-        </script>
+        </Script>
       </head>
       <body className={inter.className}>{children}</body>
     </html>
